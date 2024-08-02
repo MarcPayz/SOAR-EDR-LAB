@@ -23,5 +23,8 @@ Nessus is a widely used vulnerability scanning tool that helps identify and fix 
 Suricata is an open-source network threat detection engine that provides real-time intrusion detection (IDS), intrusion prevention (IPS), and network monitoring. It is designed to inspect network traffic, detect suspicious activities, and respond to security threats.
 
 ## Lab Logial Diagram:
+![New Lab drawio](https://github.com/user-attachments/assets/208414c4-a506-41ff-a694-4e5f823ba359)
+
+
 
 
