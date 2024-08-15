@@ -1,8 +1,8 @@
-# Network-Monitoring-Lab (In progress)
+# Firewall project (In progress)
 
 ## Objective
 
-The objective of this lab is to practice using a variety of network monitoring tools within a realistic enterprise environment, while also integrating different types of controls, including corrective, detective, and preventative measures.
+The objective of this project is to configure pfsense as a firewall 
 
 ### Tools Used
 
