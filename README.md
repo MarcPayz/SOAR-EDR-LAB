@@ -36,6 +36,7 @@ To further explain what’s happening in the logical diagram, the target endpoin
 The email/Slack message will include the time the security incident took place, computer name, source IP, process, command line, file path, sensor ID, and the link to the detection (if applicable). In the email, it will also prompt the user (the analyst) with the question, “Does the user want to isolate the machine?” If the user chooses NO, then a message will be sent to the Slack channel saying, “The computer was not isolated. Please investigate.” If the user chooses YES, then LimaCharlie will isolate the machine and send a message to the Slack channel stating the isolation status as well as the computer name.
 
 ## Steps
+![Number 1](https://github.com/user-attachments/assets/9f26f07d-ea19-45bf-b5b3-0e42db7df25d)
 
 
 
