@@ -1,4 +1,4 @@
-# Phishing-Analysis-Project
+# SOAR-EDR
 
 ## Objective
 
