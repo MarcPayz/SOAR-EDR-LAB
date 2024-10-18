@@ -1,15 +1,13 @@
-# SOAR-EDR
+# SOAR/EDR With LimaCharlie Project
 
 ## Objective
 
-The primary objective of this project is to identify and analyze phishing emails, determine their intent and maliciousness, and identify appropriate defensive measures once they are identified.
-
+The primary objective of this project is to write detection rules in LimaCharlie (EDR) and implement SOAR capabilities for responsive actions against malicious threats found on endpoints.
 
 ### Skills Learned
-
-- Understanding email headers, content, and attachments to spot suspicious elements.
-- Recognizing common phishing tactics and indicators of compromise.
-- Knowing the steps to take when a phishing email is identified, including reporting and mitigating the threat.
+- Understanding how to configure and write detection rules in LimaCharlie.
+- Gained insight on how to configure and utilize Tines for SOAR capabilities.
+- Configured Pfsense (Firewall) to
  
   
 ### Tools Used
