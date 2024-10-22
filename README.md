@@ -103,8 +103,38 @@ Heading over to the Windows Services, I can see that the LimaCharlie service is 
 
 <br>
 
-Ref 10: 
+Ref 10-16: LimaCharlie sensor vision:
+![Num 15](https://github.com/user-attachments/assets/4f533d2c-744d-4f81-b9cb-380f6397cf0e)
+Now that LimaCharlie is available and running in the background, we can now see everything related to the target machine via Sensors List.
+<br> <br>
+Ref 11:
+![Num 16](https://github.com/user-attachments/assets/6d851d9d-c0fd-4695-ac91-dfcc64a7a5bb)
+Looking at an overview, we can see important information related to the target machine, such as its external/internal IP addresses, platform version, and MAC address. We can even isolate this machine from the network, which is very useful during incident response scenarios.
+<br><br>
 
+Ref 12:
+![Num 17](https://github.com/user-attachments/assets/5ae40760-e754-462b-8e6f-15b5dfcf3b74)
+Heading over to the file system sensor, we can see all directories and files installed on the target machine as if we were on the machine itself. We can access critical information such as when a file was created, modified, accessed, as well as the attributes associated with each file, such as whether they are hidden or executables. There's also an option to quickly see file hashes if we ever need to perform any file analysis to see if a particular file is malicous or not.
+<br><br>
+
+Ref 13:
+![Num 18](https://github.com/user-attachments/assets/ae021981-4b87-4e55-9c24-59ab27f3af3e)
+Looking at the network sensor, it essentially allows us to see netstat information, which can be very helpful as it displays all active TCP and UDP connections on a system, showing which IP addresses are communicating with your device and which ports they are using. This way, you'll be able to identify a potential reverse shell by spotting an unfamiliar IP address using a port that is not typically used on that server.
+<br><br>
+
+Ref 14:
+![Num 19](https://github.com/user-attachments/assets/8ff784b4-f894-4d08-bb48-03ad1b112e87)
+Next up are current running processes. With LimaCharlie, we have the ability to immediately kill a running process if we deem it malicious. This is also very helpful during incident response scenarios.
+<br><br>
+
+Ref 15:
+![Num 20](https://github.com/user-attachments/assets/38a1ebd6-b474-47cd-8d99-03cbc8fed407)
+We can also see an event timeline of everything that occurs within the machine, similar to a SIEM. By clicking on a log, I'm able to see valuable information such as the command line executed, process ID, user, and the hash of the executable. This can be very useful during incident response scenarios because we can see a timeline of events if the system gets compromised, allowing us to monitor the adversary's actions.
+<br><br>
+
+Ref 16:
+![Num 21](https://github.com/user-attachments/assets/ec34630e-3cba-4dae-8709-9b8cd51344ce)
+One more very useful sensor is the Users sensor. We can see various information about a specific user, such as their country code, which can be useful for determining unauthorized login access from an unfamiliar geolocation, password age, which tells us when a password needs to be changed, last logon, and so on.
 
 
 
