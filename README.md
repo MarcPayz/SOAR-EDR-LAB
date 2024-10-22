@@ -136,6 +136,23 @@ Ref 16:
 ![Num 21](https://github.com/user-attachments/assets/ec34630e-3cba-4dae-8709-9b8cd51344ce)
 One more very useful sensor is the Users sensor. We can see various information about a specific user, such as their country code, which can be useful for determining unauthorized login access from an unfamiliar geolocation, password age, which tells us when a password needs to be changed, last logon, and so on.
 
+<br>
+
+Ref 17: Running LaZagne and creating detection rule:
+![Num 22](https://github.com/user-attachments/assets/3268cbc8-e300-44b5-8001-c58bed8e822b)
+After installing LaZagne, I ran the following command in powershell: ".\LaZagne.exe all -v"
+<br> <br>
+To break down what this command did, ".\LaZagne.exe" runs the executable from the current directory. The .\ indicates that the executable is in the current directory.
+<br> <br>
+The "all" option instructs LaZagne to attempt to recover all types of passwords it supports. LaZagne can extract passwords from web browsers, email clients, Wi-Fi, databases, and many other types of applications.
+<br> <br>
+The -v option stands for "verbose." This makes the output more detailed, providing additional information about each step of the password recovery process. It is useful for understanding what LaZagne is attempting to do as it tries to extract passwords.
+<br><br>
+
+Ref 18: 
+
+
+
 
 
 
