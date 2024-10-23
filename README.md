@@ -138,7 +138,7 @@ One more very useful sensor is the Users sensor. We can see various information 
 
 <br>
 
-Ref 17: Running LaZagne and creating detection rule:
+Ref 17: Running LaZagne:
 ![Num 22](https://github.com/user-attachments/assets/3268cbc8-e300-44b5-8001-c58bed8e822b)
 After installing LaZagne, I ran the following command in powershell: ".\LaZagne.exe all -v"
 <br> <br>
@@ -149,7 +149,29 @@ The "all" option instructs LaZagne to attempt to recover all types of passwords 
 The -v option stands for "verbose." This makes the output more detailed, providing additional information about each step of the password recovery process. It is useful for understanding what LaZagne is attempting to do as it tries to extract passwords.
 <br><br>
 
-Ref 18: 
+Ref 18: Creating detection rule:
+![Num 23](https://github.com/user-attachments/assets/0808ce3c-fafd-4894-95fb-2f95d68bf863)
+To create a new detection rule, we head over to the menu on the left and select 'D&R Rules,' which stands for Detection & Response rules. The best way to create a new D&R rule is to go to an existing rule, copy and paste it into a new rule, and edit that rule to meet our needs.
+<br><br>
+From what’s circled in red, I chose this specific rule because it detects Windows process creation, which is essentially what happens when LaZagne.exe is run in PowerShell; it creates a new process.
+<br><br>
+
+Ref 19:
+![Num 24](https://github.com/user-attachments/assets/2bf31993-ee28-4d82-8ce9-eadff69711a6)
+After copying and pasting the rule parameters into a new untitled rule, you can see that this rule has detect and respond parameters. I'll be editing both to successfully detect and respond to the LaZagne process being ran.
+<br> <br>
+
+Ref 20:
+![Num 25](https://github.com/user-attachments/assets/3a6ba2f3-2b15-41ee-adee-a03e7daa7876)
+After deleting all unnecessary parameters for our new rule and editing it, I wrote a sentence on lines 12 and 13 to explain what the new parameters do, as well as color-coded specific words to make it easier to relate to the edited rule.
+<br><br>
+The event type being New_Process or Existing_Process is highlighted in yellow, meaning this rule will detect LaZagne being run if it is a newly created process or an already existing process that is currently running.
+<br><br>
+"And must be windows" meaning the operating system must be windows for the detection to work.
+<br><br>
+"ignore case sensitivity" meaning this rule will detect LaZagne.exe wether the characters are capital letters or not.
+<br><br>
+"file_path must end with Lazagne.exe" meaning the rule will trigger an alert or response only if the detected file or process matches that specific executable name.
 
 
 
