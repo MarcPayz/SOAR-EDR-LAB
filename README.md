@@ -149,7 +149,7 @@ The "all" option instructs LaZagne to attempt to recover all types of passwords 
 The -v option stands for "verbose." This makes the output more detailed, providing additional information about each step of the password recovery process. It is useful for understanding what LaZagne is attempting to do as it tries to extract passwords.
 <br><br>
 
-Ref 18: Creating detection rule:
+Ref 18-20: Creating detection rule:
 ![Num 23](https://github.com/user-attachments/assets/0808ce3c-fafd-4894-95fb-2f95d68bf863)
 To create a new detection rule, we head over to the menu on the left and select 'D&R Rules,' which stands for Detection & Response rules. The best way to create a new D&R rule is to go to an existing rule, copy and paste it into a new rule, and edit that rule to meet our needs.
 <br><br>
@@ -172,6 +172,22 @@ The event type being New_Process or Existing_Process is highlighted in yellow, m
 "ignore case sensitivity" meaning this rule will detect LaZagne.exe wether the characters are capital letters or not.
 <br><br>
 "file_path must end with Lazagne.exe" meaning the rule will trigger an alert or response only if the detected file or process matches that specific executable name.
+<br><br>
+
+Ref 21: Adding on to detection rule:
+![Num 26](https://github.com/user-attachments/assets/9d747796-6b49-4c83-9285-113c50357012)
+I want to add LaZagne's file hash to the detection rule. To do this, I'll head over to the timeline sensor and search for the log entry from when I ran LaZagne.exe in Reference 17.
+<br><br>
+![Num 27](https://github.com/user-attachments/assets/e58dbb13-c04b-4dfb-ab30-41d10b289818)
+Now, to build on the rule I was already creating, everything from line 13 onward includes all the new parameters added.
+<br><br>
+Line 33 mentions "OR Command_Line ends with all", this means if the "all" option is used in the command just like in ref 17 it'll also detect it.
+<br><br>
+"command_line contains Lazagne" means it will detect if the command line, such as PowerShell, includes the word 'Lazagne.'
+<br><br>
+"OR hash == LaZagne hash" means I want to include LaZagne's file hash in the detection rule because if the LaZagne.exe file is renamed to something else, such as pasta.exe, this rule will still be able to detect that LaZagne is running, as a file's hash does not change when you rename the file.
+<br><br>
+Also as you can notice, there's a pattern occuring when a new set of rules are being added in the parameters. Everytime a new rule is added, it starts with the case sensitivity, then the operation, and so forth.
 
 
 
