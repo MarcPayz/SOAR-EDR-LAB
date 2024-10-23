@@ -149,7 +149,7 @@ The "all" option instructs LaZagne to attempt to recover all types of passwords 
 The -v option stands for "verbose." This makes the output more detailed, providing additional information about each step of the password recovery process. It is useful for understanding what LaZagne is attempting to do as it tries to extract passwords.
 <br><br>
 
-Ref 18-20: Creating detection rule:
+Ref 18-22: Creating detection rule:
 ![Num 23](https://github.com/user-attachments/assets/0808ce3c-fafd-4894-95fb-2f95d68bf863)
 To create a new detection rule, we head over to the menu on the left and select 'D&R Rules,' which stands for Detection & Response rules. The best way to create a new D&R rule is to go to an existing rule, copy and paste it into a new rule, and edit that rule to meet our needs.
 <br><br>
@@ -187,9 +187,14 @@ Line 33 mentions "OR Command_Line ends with all", this means if the "all" option
 <br><br>
 "OR hash == LaZagne hash" means I want to include LaZagne's file hash in the detection rule because if the LaZagne.exe file is renamed to something else, such as pasta.exe, this rule will still be able to detect that LaZagne is running, as a file's hash does not change when you rename the file.
 <br><br>
-Also as you can notice, there's a pattern occuring when a new set of rules are being added in the parameters. Everytime a new rule is added, it starts with the case sensitivity, then the operation, and so forth.
+As you can see, there’s a pattern occurring when a new set of rules is added to the parameters. Every time a new rule is added, it starts with case sensitivity, followed by the operation, and so on.
+<br><br>
 
-
+Ref 22: Editing Respond rule:
+![Num 28](https://github.com/user-attachments/assets/30536007-9104-485c-805d-7a8f11b0ed20)
+Now that we have completed our detection rule, I want to create a response action that generates a report detailing the author— the person who created this detection rule— along with a description, severity levels, and the type of malicious executable, which in this case is credential access.
+<br> <br>
+To do this, I followed along and edited the previous response action to cater to my needs.
 
 
 
