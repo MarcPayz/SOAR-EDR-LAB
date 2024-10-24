@@ -228,6 +228,38 @@ As you can see, after running LaZagne on the target machine, I received notifica
 <br><br>
 ![Num 35](https://github.com/user-attachments/assets/0f0abc7b-ffb0-4909-a0c1-63d1181f0fd0)
 Scrolling down, we can see more information, such as the author who created the detection rule, which is MarcP, the description, and the type of attack, which was credential access, underlined in red.
+<br><br>
+
+Ref 29-34: SOAR implementation via Tines:
+![Num 36](https://github.com/user-attachments/assets/d614f4b8-3014-4760-96e3-32c8659ffa66)
+Now, to implement SOAR capabilities, we are going to utilize Tines. Heading over to Tines, the first thing we're going to do is implement a webhook. After dragging the webhook into the middle, I gave it a name and description, and now I'll copy the webhook URL. 
+<br><br>
+A webhook in Tines is a way to receive real-time data from external sources. It acts as a listener that waits for specific events or triggers from other applications or services.
+<br><br>
+
+Ref 30:
+![Num 37](https://github.com/user-attachments/assets/1c627fe0-b77c-4542-b335-08debf63a973)
+Now heading back to LimaCharlie, on the left hand side, I will select outputs, which allows me to integrate data from LimaCharlie into other cloud tools.
+<br><br>
+
+Ref 31: Choosing output stream:
+![Num 38](https://github.com/user-attachments/assets/d5525d55-068d-432a-ad26-b1f307d7bb80)
+Now it'll ask me to choose an output stream. Since we created a detection rule earlier, I'll select detections as my output stream.
+<br><br>
+
+Ref 32: Choosing output destination:
+![Num 39](https://github.com/user-attachments/assets/5f463117-b255-456c-bb11-3b85299d9263)
+Next, we need to choose an output destination for our alerts. As you can see, there are many places to send our alerts, but we are interested in outputting them directly to Tines.
+<br><br>
+
+Ref 33: Pasting destination host:
+![Num 40](https://github.com/user-attachments/assets/f693e540-39ff-4bb9-871a-da6fd88f765e)
+The last thing we need to do is to paste our destination host. We do this by copying the webhook URL form Tines and pasting that into the destination host.
+<br><br>
+
+Ref 34: Testing webhook implementation:
+![Num 41](https://github.com/user-attachments/assets/8b07f03d-2aa0-45e4-a827-d8a7b5e118d7)
+Now, by re-running the command again on PowerShell, it should generate another detection, which will be forwarded to Tines. After selecting Test, you can see that the alert was successfully integrated into Tines from LimaCharlie. We see the exact same information just like in Ref 28.
 
 
 
