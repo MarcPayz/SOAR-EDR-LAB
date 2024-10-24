@@ -195,6 +195,42 @@ Ref 22: Editing Respond rule:
 Now that we have completed our detection rule, I want to create a response action that generates a report detailing the author— the person who created this detection rule— along with a description, severity levels, and the type of malicious executable, which in this case is credential access.
 <br> <br>
 To do this, I followed along and edited the previous response action to cater to my needs.
+<br><br>
+
+Ref 23-28: Testing New Rule:
+![Num 29](https://github.com/user-attachments/assets/968746d5-c774-4f21-8c35-f3ddef014873)
+One really cool thing about LimaCharlie is that you can test before allowing the rule to go into production. To do this, we'll head over to the Target event and copy and paste the log from the timeline (Ref 21).
+<br><br>
+
+Ref 24: 
+![Num 30](https://github.com/user-attachments/assets/35d0439d-8c9a-4efd-884d-9441702450d4)
+As you can see, all I did was pasted the timeline log from Ref 21, and now I'll test the rule by selecting Test Event at the bottom. 
+<br><br>
+
+Ref 25: Result:
+![Num 31](https://github.com/user-attachments/assets/609b96e8-a575-4621-8872-f49dd54fcbfc)
+As you can see, this rule is successful, and there was a match for the log that was sent. 
+<br><br>
+
+Ref 26: Seeing if rule works in production:
+![Num 32](https://github.com/user-attachments/assets/e4ec24ab-943e-4b1b-b6b5-d0b2d430ec8f)
+As you can see on the sensor's tab, no detections have been notified yet.
+<br><br>
+
+Ref 27: 
+![Num 33](https://github.com/user-attachments/assets/99196f0b-634e-493e-b893-799b8c3a8730)
+Running LaZange on powershell to see if detection will be notified.
+<br><br>
+
+Ref 28:
+![Num 34](https://github.com/user-attachments/assets/f9fab2db-48e7-45fd-9066-37d7633249a7)
+As you can see, after running LaZagne on the target machine, I received notifications of detections. By clicking on one of them, you can view various details due to the parameters set during the rule's creation. We can see the command line, hash, and the parent process, which shows that 'LaZagne.exe all' was run on powershell.exe, highlighted in green.
+<br><br>
+![Num 35](https://github.com/user-attachments/assets/0f0abc7b-ffb0-4909-a0c1-63d1181f0fd0)
+Scrolling down, we can see more information, such as the author who created the detection rule, which is MarcP, the description, and the type of attack, which was credential access, underlined in red.
+
+
+
 
 
 
