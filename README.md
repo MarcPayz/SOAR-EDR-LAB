@@ -273,16 +273,21 @@ I am integrating Slack in Tines to ensure that information from the webhook, whi
 <br><br>
 
 Ref 37: Connecting Slack to Tines:
+<br>
 ![Num 45](https://github.com/user-attachments/assets/7ab1051e-085d-4737-b956-bca715e8ed5e)
+<br>
 To properly connect the Slack channel to Tines, I have to copy and paste the Channel/ User ID from the channel and paste it into field in Tines as you'll see in the following image.
 <br> <br>
 ![Num 46](https://github.com/user-attachments/assets/a02fee01-bc88-43f9-99fe-d4ec1588a57e)
+<br>
 As you can see I pasted the Channel/ User ID into Tines, as well as added a test message to be sent to the slack channel to see if it worked.
 <br><br>
 ![Num 47](https://github.com/user-attachments/assets/748995ee-c7c4-4aad-b519-4c0279673675)
+<br>
 Next step is to authenticate with our slack credentials from Tines by pressing connect.
 <br><br>
 ![Num 48](https://github.com/user-attachments/assets/524a927e-9a57-47af-81ce-a34d7297ed86)
+<br>
 And now all that's left to do is to physically connect the webhook to slack as you can see by that line, and select test.
 <br><br>
 ![Num 49](https://github.com/user-attachments/assets/1f6d5afa-434a-4482-8713-3a46d597d796)
@@ -290,6 +295,20 @@ As you can see, it worked successfully—Tines was able to send a message to the
 <br><br>
 
 Ref 38: Connecting Gmail to Tines:
+![Num 50](https://github.com/user-attachments/assets/422706be-1c2e-4876-a0a5-747233988b95)
+To connect Gmail to Tines, I followed some of the same steps as when integrating Slack. I provided the Tines fields with the recipient email address, set the sender name as 'Alerts', used 'Let's see' as the subject, and kept the body as the default message that Tines provides.
+<br><br>
+![Num 51](https://github.com/user-attachments/assets/6bc3b740-ad4a-4bf1-8bee-b9b6b4bfa3e2)
+After selecting 'Test,' an email message was successfully sent to my inbox, as you can see. The purpose of this setup is to provide flexibility with alert notifications. If the SOC analyst doesn't see or receive the Slack message, they will still be notified via email. This serves as a form of redundancy in case Slack goes down or, conversely, if Gmail stops working for any reason.
+<br><br>
+
+Ref 39: Adding User Prompt:
+![Num 52](https://github.com/user-attachments/assets/216e0ed1-61da-49c7-9d6e-962632baab55)
+Next up is the User Prompt. The purpose of this prompt is to ask the SOC analysts (the users) whether they want to isolate the machine (Yes/No). After selecting an option, the user prompt will generate a message saying, 'Thank you for your response.'
+<br><br>
+![Num 53](https://github.com/user-attachments/assets/6e9502ec-fa59-496e-a486-9c32be51cd93)
+By double-clicking into the User Prompt, Tines allows you to customize the prompt's appearance using elements on the left side. I kept it simple, and this is how the user prompt will appear to the user.
+<br><br>
 
 
 
