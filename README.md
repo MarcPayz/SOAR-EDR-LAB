@@ -346,6 +346,7 @@ Ref 41: Configuring Yes/No buttons in User Prompt:
 I want a message to be generated in the Slack message when the user selects the 'No' option in the user prompt. To achieve this, I will apply a rule under 'Rules' that corresponds to the user's response to the 'isolate' question. That's why the rule stops at '.isolate'. And now the second rule where it says 'is equal to false', it's set to false because when the user selects no, Tines views it as false.
 <br><br>
 ![Num 64](https://github.com/user-attachments/assets/d7e44dd9-14b4-4179-9190-b1e0efa677ba)
+Since I wanted another message to be generated in Slack, I copied and pasted the previous Slack I added earlier underneath the No trigger, and in the message, it's going to say 'The computer (Computer name) was not isolated, please investigate!'
 
 
 
