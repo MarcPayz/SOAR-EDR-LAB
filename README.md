@@ -310,6 +310,25 @@ Next up is the User Prompt. The purpose of this prompt is to ask the SOC analyst
 By double-clicking into the User Prompt, Tines allows you to customize the prompt's appearance using elements on the left side. I kept it simple, and this is how the user prompt will appear to the user.
 <br><br>
 
+Ref 40: Preparing Slack/Email automated message:
+![Num 54](https://github.com/user-attachments/assets/ca256c7b-7511-451f-9582-23103ea84ad5)
+I want the Slack and email messages to contain the title of the alert, time, computer name, source IP, username, file path, command line, sensor ID, and a detection link that the SOC analyst can click on to be directed straight to LimaCharlie to begin the investigation. <br>
+The red arrow indicates that I received all these parameters from the initial alert itself. I simply copied and pasted them into Notepad to implement them into Slack/Gmail later.
+<br><br>
+![Num 55](https://github.com/user-attachments/assets/720f5e4b-ea95-48fd-80b1-4d18bdad50bb)
+<br>
+The data I had in my notepad, I pasted them into the Message area for the Slack I added earlier. As you can see it shows all the parameters I want to see in the Slack message when it's sent out.
+<br><br>
+![Num 56](https://github.com/user-attachments/assets/655b01dd-ee19-40fb-9b1d-891ba37dce7d)
+After testing, you can see that the message with all the parameters was successfully sent to the Slack Alert channel! The SOC analyst can quickly view all important information related to the alert, such as the command line that was sent, the time this event occurred, the user, and the detection link that goes directly to LimaCharlie.
+<br><br>
+![Num 57](https://github.com/user-attachments/assets/d8178fb8-765a-413a-b699-586166dbe351)
+When you click on the detection link, it takes you directly to the timeline sensor in LimaCharlie, where the specific alert log is highlighted. This feature allows the SOC analyst to easily begin their investigation and clearly identify all actions that occurred following the alert, streamlining the investigation process.
+
+
+
+
+
 
 
 
