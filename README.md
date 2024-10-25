@@ -310,7 +310,7 @@ Next up is the User Prompt. The purpose of this prompt is to ask the SOC analyst
 By double-clicking into the User Prompt, Tines allows you to customize the prompt's appearance using elements on the left side. I kept it simple, and this is how the user prompt will appear to the user.
 <br><br>
 
-Ref 40: Preparing Slack/Email automated message:
+Ref 40: Preparing Slack/Email and User Prompt automated message:
 ![Num 54](https://github.com/user-attachments/assets/ca256c7b-7511-451f-9582-23103ea84ad5)
 I want the Slack and email messages to contain the title of the alert, time, computer name, source IP, username, file path, command line, sensor ID, and a detection link that the SOC analyst can click on to be directed straight to LimaCharlie to begin the investigation. <br>
 The red arrow indicates that I received all these parameters from the initial alert itself. I simply copied and pasted them into Notepad to implement them into Slack/Gmail later.
@@ -324,6 +324,39 @@ After testing, you can see that the message with all the parameters was successf
 <br><br>
 ![Num 57](https://github.com/user-attachments/assets/d8178fb8-765a-413a-b699-586166dbe351)
 When you click on the detection link, it takes you directly to the timeline sensor in LimaCharlie, where the specific alert log is highlighted. This feature allows the SOC analyst to easily begin their investigation and clearly identify all actions that occurred following the alert, streamlining the investigation process.
+<br><br>
+![Num 58](https://github.com/user-attachments/assets/7f3ef84b-4606-4411-8eac-b7a7413abc3e)
+Now, let’s apply the same approach for Gmail. The process is slightly different because Gmail uses HTML. Instead of simply copying and pasting, I added the 'br' tags to ensure each data point appears on a separate line. Additionally, I slightly isolated the detection link to reduce clutter, making it more visible for the user.
+<br><br>
+![Num 59](https://github.com/user-attachments/assets/0dad2aab-29f0-4492-adbb-7b4e38050276)
+After testing, the email was successfully generated!
+<br><br>
+![Num 60](https://github.com/user-attachments/assets/7ae13bb5-edf0-4188-a6d2-13f7404bfcdc)
+Doing the same thing for the user prompt, I pasted the parameters here as well so the SOC analyst can decide if they want to isolate based on the alert data.
+<br><br>
+![Num 61](https://github.com/user-attachments/assets/2c449b2f-fa2d-41bc-ae72-5a36575e1ce2)
+This is how the user prompt will look like in production, as you can see it shows all necessary data from the alert, as well as asking the user if they want to isolate. When the user selects an option, you will see the response in the next image.
+<br><br>
+![Num 62](https://github.com/user-attachments/assets/f5d02fd1-557f-4438-bb1f-250b56353d20)
+Just a simple thank you for your response message will pop up. 
+<br><br>
+
+Ref 41: Configuring Yes/No buttons in User Prompt:
+![Num 63](https://github.com/user-attachments/assets/1e85a261-59ac-4601-bac1-4745dbe5ae2e)
+I want a message to be generated in the Slack message when the user selects the 'No' option in the user prompt. To achieve this, I will apply a rule under 'Rules' that corresponds to the user's response to the 'isolate' question. That's why the rule stops at '.isolate'. And now the second rule where it says 'is equal to false', it's set to false because when the user selects no, Tines views it as false.
+<br><br>
+![Num 64](https://github.com/user-attachments/assets/d7e44dd9-14b4-4179-9190-b1e0efa677ba)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
