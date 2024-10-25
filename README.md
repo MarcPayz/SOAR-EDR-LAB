@@ -260,6 +260,45 @@ The last thing we need to do is to paste our destination host. We do this by cop
 Ref 34: Testing webhook implementation:
 ![Num 41](https://github.com/user-attachments/assets/8b07f03d-2aa0-45e4-a827-d8a7b5e118d7)
 Now, by re-running the command again on PowerShell, it should generate another detection, which will be forwarded to Tines. After selecting Test, you can see that the alert was successfully integrated into Tines from LimaCharlie. We see the exact same information just like in Ref 28.
+<br><br>
+
+Ref 35: Creating Alert Slack Channel for SOC team:
+![Num 43](https://github.com/user-attachments/assets/ba9f09ad-874d-4a59-bac7-3b981755eb0e)
+This Slack channel is for the SOC team to receive alert notifications if they are away from the keyboard (AFK) or for documentation purposes. The automated alert message enables them to quickly investigate any detected malicious threats on the endpoint and take prompt action if necessary.
+<br><br>
+
+Ref 36: Adding Slack in Tines:
+![Num 44](https://github.com/user-attachments/assets/9b5ca6db-02cc-4239-9132-6f96ee2ee3ce)
+I am integrating Slack in Tines to ensure that information from the webhook, which contains all the alert details, is sent directly to the Slack alert channel. This setup will allow the SOC team to receive real-time updates on alerts and streamline the incident response process.
+<br><br>
+
+Ref 37: Connecting Slack to Tines:
+![Num 45](https://github.com/user-attachments/assets/7ab1051e-085d-4737-b956-bca715e8ed5e)
+To properly connect the Slack channel to Tines, I have to copy and paste the Channel/ User ID from the channel and paste it into field in Tines as you'll see in the following image.
+<br> <br>
+![Num 46](https://github.com/user-attachments/assets/a02fee01-bc88-43f9-99fe-d4ec1588a57e)
+As you can see I pasted the Channel/ User ID into Tines, as well as added a test message to be sent to the slack channel to see if it worked.
+<br><br>
+![Num 47](https://github.com/user-attachments/assets/748995ee-c7c4-4aad-b519-4c0279673675)
+Next step is to authenticate with our slack credentials from Tines by pressing connect.
+<br><br>
+![Num 48](https://github.com/user-attachments/assets/524a927e-9a57-47af-81ce-a34d7297ed86)
+And now all that's left to do is to physically connect the webhook to slack as you can see by that line, and select test.
+<br><br>
+![Num 49](https://github.com/user-attachments/assets/1f6d5afa-434a-4482-8713-3a46d597d796)
+As you can see, it worked successfully—Tines was able to send a message to the Slack channel! I made some changes to the message sent due to a bit of troubleshooting I had to do.
+<br><br>
+
+Ref 38: Connecting Gmail to Tines:
+
+
+
+
+
+
+
+
+
 
 
 
