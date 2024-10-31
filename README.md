@@ -15,6 +15,7 @@ The primary objective of this project is to write detection rules in LimaCharlie
 - Tines
 - Pfsense
 - LaZagne
+- Slack
 
 ## General Knowledge
 Before we begin I will give a litle background on LimaCharlie, Tines, Pfsense, and LaZagne.
