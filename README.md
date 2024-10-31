@@ -38,7 +38,7 @@ To further explain what’s happening in the logical diagram, the target endpoin
 
 The email/Slack message will include the time the security incident took place, computer name, source IP, process, command line, file path, sensor ID, and the link to the detection (if applicable). In the email, it will also prompt the user (the analyst) with the question, “Does the user want to isolate the machine?” If the user chooses NO, then a message will be sent to the Slack channel saying, “The computer was not isolated. Please investigate.” If the user chooses YES, then LimaCharlie will isolate the machine and send a message to the Slack channel stating the isolation status as well as the computer name.
 
-## Steps (Ref 1-42):
+## Project Setup (Ref 1-42):
 Ref1: Creating Target windows 10 machine:
 ![Num 1](https://github.com/user-attachments/assets/b1389e8e-5ce6-4f26-bec3-0767c3fd173c)
 This Windows 10 virtual machine (vm) will have 8 GB of RAM and 4 CPU cores. What’s important here is the network adapter portion; I will specifically choose a custom network to give this Windows machine its own separate network, isolated from my own machine's network.
