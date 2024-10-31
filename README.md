@@ -335,9 +335,11 @@ After testing, the email was successfully generated!
 Doing the same thing for the user prompt, I pasted the parameters here as well so the SOC analyst can decide if they want to isolate based on the alert data.
 <br><br>
 ![Num 61](https://github.com/user-attachments/assets/2c449b2f-fa2d-41bc-ae72-5a36575e1ce2)
+<br>
 This is how the user prompt will look like in production, as you can see it shows all necessary data from the alert, as well as asking the user if they want to isolate. When the user selects an option, you will see the response in the next image.
 <br><br>
 ![Num 62](https://github.com/user-attachments/assets/f5d02fd1-557f-4438-bb1f-250b56353d20)
+<br>
 Just a simple thank you for your response message will pop up. 
 <br><br>
 
@@ -347,6 +349,72 @@ I want a message to be generated in the Slack message when the user selects the 
 <br><br>
 ![Num 64](https://github.com/user-attachments/assets/d7e44dd9-14b4-4179-9190-b1e0efa677ba)
 Since I wanted another message to be generated in Slack, I copied and pasted the previous Slack I added earlier underneath the No trigger, and in the message, it's going to say 'The computer (Computer name) was not isolated, please investigate!'
+<br><br>
+![Num 65](https://github.com/user-attachments/assets/92ee8a8f-9c96-46e1-ad0e-f44ed95ad47d)
+<br>
+To simulate this, I will rerun the test and select 'No'.
+<br><br>
+![Num 66](https://github.com/user-attachments/assets/dae26b55-e71c-4300-8d98-a1c55a2c373b)
+<br>
+I will recieve this message after selecting.
+<br><br>
+![Num 67](https://github.com/user-attachments/assets/0ac49af1-9dbd-4d43-8aa4-ae2f34ef47c5)
+As you can see, after selecting 'No,' an automated message was sent on Slack stating that the computer was not isolated. It included the computer's name, 'userasystem.home.arpa,' and requested investigation. This automated message is very important because it logs the security analyst who made the decision and alerts other team members that this machine will not be isolated. There are various reasons for this, such as preserving evidence, observing the attacker’s behavior, or if the machine is a mission-critical server, isolating it could disrupt availability, especially if it’s a public web server.
+<br><br>
+![Num 68](https://github.com/user-attachments/assets/94a11864-e8db-42d3-9ff2-c5b39dada059)
+Now I want to configure LimaCharlie to actually isolate the machine from the network when I select 'Yes'. To do this, I will start by adding another trigger and under rules I will set a rule where '.isolate' is equal to true.
+<br><br>
+![Num 69](https://github.com/user-attachments/assets/f9a57c24-1105-4f04-9bc5-4fc00fff9397)
+Now when I add LimaCharlie into Tines, I will select 'Isolate Sensor in LimaCharlie' meaning when the Yes option is chosen, it's going to automatically isolate the machine.
+<br><br>
+![Num 70](https://github.com/user-attachments/assets/c33911ac-b599-400a-8966-3c8bf633aaff)
+<br>
+After connecting the Yes trigger and LimaCharlie together, this is the URL LimaCharlie on Tines is going to use to actually isolate the machine on the offical LimaCharlie domain.
+<br><br>
+![Num 71](https://github.com/user-attachments/assets/76bcaf2f-fcfd-400a-8995-afb0cf886a2c)
+Next I need to give Tines the proper credentials to actually make that post request to LimaCharlie. To do this, I will head over to LimaCharlie, and select 'Rest API' under access managment. Next I will copy the 'Org JWT' API key.
+<br><br>
+![Num 72](https://github.com/user-attachments/assets/6fae5791-2de6-4fa8-947f-e85c826647a3)
+Just as I did to add Slack credentials on Tines, I will do something similar for LimaCharlie. I pasted the API key where it says 'Values,' and now, under 'Additional Configurations,' I will specify the domain as '.limacharlie.io.' This configuration means that Tines will only have credentials to access the LimaCharlie.io domain using the API key.
+<br><br>
+![Num 73](https://github.com/user-attachments/assets/3f28674b-1a76-4504-a434-ff3bc368e5a2)
+Now that the proper credentials have been provided to Tines to send POST requests to LimaCharlie, I will test the automation by selecting 'Test' on the isolate sensor. As you can see, I received an HTTP status of 200, indicating that it should have worked.
+<br><br>
+![Num 74](https://github.com/user-attachments/assets/91839878-47ed-4505-b63a-fa7b97301601)
+Heading over to LimaCharlie, the previous network status of my target Windows machine was 'Allowed,' and now it says 'Isolated,' meaning the test was indeed a success.
+<br><br>
+![Num 75](https://github.com/user-attachments/assets/59f53023-9e29-4225-907b-0637c837c690)
+To further confirm that the target Windows machine was isolated from the network, I went to the machine and performed a ping test on Google's DNS server at 8.8.8.8. As you can see, each packet returned a response of 'General failure,' resulting in 100% packet loss across all four attempts. This proves to me that the windows machine was sucessfully isolated from the network.
+<br><br>
+![Num 76](https://github.com/user-attachments/assets/d1f06ed6-2821-4c79-b23c-a05f4cceaee8)
+Now, I want the isolation status to be automatically sent to Slack, just as it did when the user selected 'No.' To achieve this, I added another HTTP request. However, instead of using 'Isolate Sensor,' this request will be 'Get Isolation Status.' Since it’s retrieving the isolation status from LimaCharlie, this time a GET request will be sent to request the status from LimaCharlie. I also copied and pasted the previous Slack from the No trigger and pasted it.
+<br><br>
+![Num 77](https://github.com/user-attachments/assets/fe8538b8-6a03-4205-b5d8-478620beaf62)
+To edit the Slack message, I'll update the isolation status to reflect the retrieved status from the HTTP request above, include the computer name, and end with 'has been isolated.
+<br><br>
+![Num 78](https://github.com/user-attachments/assets/cbb80aa3-2759-4114-ba44-0a04034b48a3)
+Before I ran the test, I re added the windows machine into the network. Now after running the test and checking Slack, I confirmed that the automated message was successfully sent, informing the team that the machine has been isolated. This notification enables the team to begin the incident response plan, such as following NIST SP 800-83.
+<br><br>
+![Num 79](https://github.com/user-attachments/assets/38544bce-2415-424d-bafd-03818a145214)
+Following up on the Slack message, I headed over to the windows machine again to make sure the Target windows machine was isolated, and as you can see I am unable to ping 8.8.8.8 and looking at my google.com query, I get a response saying 'This site can't be reached'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
