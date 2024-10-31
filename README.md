@@ -397,6 +397,16 @@ Before I ran the test, I re added the windows machine into the network. Now afte
 <br><br>
 ![Num 79](https://github.com/user-attachments/assets/38544bce-2415-424d-bafd-03818a145214)
 Following up on the Slack message, I headed over to the windows machine again to make sure the Target windows machine was isolated, and as you can see I am unable to ping 8.8.8.8 and looking at my google.com query, I get a response saying 'This site can't be reached'.
+<br><br>
+
+Ref 42: Configuring User prompt to be sent in mail inbox:
+![Num 80](https://github.com/user-attachments/assets/a6074da3-c323-47aa-8a8b-308e7f200932)
+The final step is to incorporate the User Prompt into the email notification or Slack message. To do this, I connected Slack to the User Prompt field, as well as email, as shown by the purple arrows. For the body, I added the question 'Isolate the Machine?' along with the link to the prompt in the email body.
+
+
+
+
+
 
 
 
