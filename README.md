@@ -28,6 +28,8 @@ pfSense is an open-source firewall and router software. Its main purpose is to p
 
 LaZagne is a credential-harvesting tool written in Python. Its purpose is to extract stored passwords and sensitive information from a compromised machine. For this project, I will be utilizing LaZagne to simulate malicious activity on the target endpoint so I can write a detection rule in LimaCharlie to promote investigation and response capabilities.
 
+Slack is a collaborative communication tool commonly used in workplaces for team messaging, file sharing, and project coordination. For this project, Slack will essentially be the messaging platform the team will be recieving any automated alerts generated from LimaCharlie.
+
 ## Project Logial Diagram:
 ![Screenshot 2024-08-16 151425](https://github.com/user-attachments/assets/c36c24fd-7c68-4914-947c-d1c5082c5f59)
 This is the logical diagram of the project, showing everything that will happen, starting from when the malicious process (LaZagne) is run to the isolation of the machine, and a message being sent in Slack to notify the team that the specific endpoint has been isolated. <br> 
