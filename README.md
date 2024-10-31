@@ -35,7 +35,7 @@ To further explain what’s happening in the logical diagram, the target endpoin
 
 The email/Slack message will include the time the security incident took place, computer name, source IP, process, command line, file path, sensor ID, and the link to the detection (if applicable). In the email, it will also prompt the user (the analyst) with the question, “Does the user want to isolate the machine?” If the user chooses NO, then a message will be sent to the Slack channel saying, “The computer was not isolated. Please investigate.” If the user chooses YES, then LimaCharlie will isolate the machine and send a message to the Slack channel stating the isolation status as well as the computer name.
 
-## Steps
+## Steps (Ref 1-42):
 Ref1: Creating Target windows 10 machine:
 ![Num 1](https://github.com/user-attachments/assets/b1389e8e-5ce6-4f26-bec3-0767c3fd173c)
 This Windows 10 virtual machine (vm) will have 8 GB of RAM and 4 CPU cores. What’s important here is the network adapter portion; I will specifically choose a custom network to give this Windows machine its own separate network, isolated from my own machine's network.
@@ -402,6 +402,41 @@ Following up on the Slack message, I headed over to the windows machine again to
 Ref 42: Configuring User prompt to be sent in mail inbox:
 ![Num 80](https://github.com/user-attachments/assets/a6074da3-c323-47aa-8a8b-308e7f200932)
 The final step is to incorporate the User Prompt into the email notification or Slack message. To do this, I connected Slack to the User Prompt field, as well as email, as shown by the purple arrows. For the body, I added the question 'Isolate the Machine?' along with the link to the prompt in the email body.
+
+## Project in Production:
+Scenario: <br>
+A user, Alex, is browsing the internet, researching information for a project. They click on a link to a seemingly legitimate site that’s been compromised to deliver malicious code.
+
+Without any visible download or prompt, the website executes a malicious JavaScript payload in the background, exploiting a vulnerability in the browser or one of its plugins. This script launches a hidden PowerShell command on Alex’s machine.
+
+Within moments, a PowerShell prompt briefly flashes on the screen before attempting to hide itself again, initiating commands designed to capture credentials stored on the machine. <br> 
+![Num 81](https://github.com/user-attachments/assets/de4ead59-1536-48b8-870e-5b88de3e89ce)
+<br><br>
+As soon as the PowerShell command executes, it triggers an automated alert within the organization’s security monitoring system. This alert immediately sends an email notification to MarcP, a security analyst, detailing the security incident.
+![Num 82](https://github.com/user-attachments/assets/b3f303fb-499e-491a-8573-bfa8d29783c0)
+<br><br>
+Seeing this, Marc quickly responds to the email by clicking on the 'Isolate the Machine?' link because he is familiar with the hack tool LaZagne.exe and it raises major red flags that this tool is being utilized in the commandline. 
+<br><br>
+![Num 83](https://github.com/user-attachments/assets/13b6cd51-aa48-4072-ba95-9dfc8f3a7adb)
+Clicking on the link, Marc selects 'Yes' for isolation, following the NIST SP 800-83 incident response plan.
+<br><br>
+![Num 84](https://github.com/user-attachments/assets/208d50ef-bb89-4459-bb14-57587cd97c3d)
+As Marc selects 'Yes,' an automated message is sent to Slack, informing the SOC team of the recent action and the machine's isolation status.
+<br><br>
+![Num 85](https://github.com/user-attachments/assets/5ea09642-3386-4e6f-9c50-044017787867)
+Alex has reported to the SOC team that the machine doesn't have internet connectivity anymore.
+<br><br>
+![Num 86](https://github.com/user-attachments/assets/48df5a64-c8ea-4538-ba83-c4bdf1bfffee)
+Now that Marc knows the machine is isolated, he can continue investigating the security incident by following the incident response plan. This includes eradicating the malicious .exe and ensuring any persistence mechanisms are removed from the machine. Potential persistence methods may include scheduled tasks, registry modifications, startup folders, or Windows services. An adversary can use many techniques for persistence, so removing any potential persistence is crucial. If I find critical system files have been modified or if an unknown or uncertain infection is discovered during the investigation, I would reimage the machine. <br><br>
+Next, I would initiate a network-wide password reset for any compromised accounts and ensure MFA is enforced on affected accounts. I would then disable any temporary accounts, if necessary, and monitor for unauthorized login attempts or any suspicious login activity from unfamiliar locations and times.
+<br><br>
+Additionally, I will investigate how Alex's workstation was compromised by locating the malicious URL he clicked on by going throught the timeline on LimaCharlie. I would then perform a web proxy block on the entire domain, as we know it is highly malicious.
+<br><br>
+Finally, I would educate the user on being cautious about clicking potentially malicious links, especially if the website appears suspicious.
+
+## Project Completed
+
+
 
 
 
