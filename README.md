@@ -70,13 +70,13 @@ Ref 5: Configuring Ipv4 for Windows 10 VM for Internet Access:
 ![Num 6](https://github.com/user-attachments/assets/83211d86-691a-4526-a9da-e3a51fe15d77)
 The red arrows show the changes I've made in the target Windows 10 VM's IPv4 settings. I've set the IP address to 192.168.1.100 to ensure the target VM is on the same network as pfSense. I've set the default gateway to 192.168.1.1, which is pfSense's IP address, and I've also done the same for the preferred DNS server. 
 <br><br>
+
+Ref 6: Checking for internet connectivity:
 ![Num 7](https://github.com/user-attachments/assets/bc67f0b5-dfcd-4b04-b46c-6b7358266a24)
 This screenshot just shows the target vm is connected to the internet after saving the configurations I've made in Ipv4 settings.
 
 <br>
 
-Ref 6: Creating a new organization:
-![Num 7](https://github.com/user-attachments/assets/4c6ee06c-229f-49ba-8d46-73aabaeed765)
 After making a LimaCharlie account, I created a new organization called "Payz - SOAR-EDR"
 
 <br>
